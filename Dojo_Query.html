@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+  <body>
+    <button id="someIdForSomeButton">Display1</button>	
+	<button id="someOtherIdForSomeOtherButton">Display2</button>	
+    <script>		
+		(function(){
+			
+			function $Dojo(elementId){			
+				this.DOMObject = document.getElementById(elementId);			
+				
+				this.click = function(callback){
+						this.DOMObject.addEventListener("click", callback);
+					
+				}
+				
+				this.hover = function(callback){
+						this.DOMObject.addEventListener("mouseover", callback);
+						this.DOMObject.addEventListener("mouseout", callback);
+					
+				}
+				return this;
+			}
+				
+			
+			$Dojo("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
+			$Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
+			
+		})();
+		
+		
+    </script>
+  </body>
+</html>

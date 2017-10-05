@@ -1,0 +1,71 @@
+<html>
+<body>
+    <h1>Students</h1>
+    <ul id="main">
+        <!-- this is empty-->
+    </ul> 
+	 <ul id="main2">
+        <!-- this is empty-->
+    </ul> 
+	<div id="myDIV1">
+	</div>
+	<div id="myDIV2">
+	</div>
+<script>
+    function appendList(array, id){        
+		var ul = document.getElementById(id);
+		var li;
+		for(let i = 0; i < array.length; i++){
+			li = document.createElement("li");
+			li.appendChild(document.createTextNode(array[i]));
+			ul.appendChild(li);
+		}		
+    };
+    let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
+    let target_id = "main";
+    appendList(students, target_id);	
+	
+	function superAppend(array, id, element){
+		console.log(element);
+		console.log(element.toUpperCase());
+		elem = element.toUpperCase();
+		
+		switch(elem){
+			case 'P': 
+				var para = document.createElement("p");  
+				var t;
+				for(let i = 0; i < array.length; i++){
+					t = document.createTextNode(array[i]); 
+					para.appendChild(t);  
+					document.getElementById(id).appendChild(para);   
+				}
+				break;		
+			case 'LI':
+				var ul = document.getElementById(id);
+				var li;
+				for(let i = 0; i < array.length; i++){
+					li = document.createElement("li");
+					li.appendChild(document.createTextNode(array[i]));
+					ul.appendChild(li);
+				}
+				break;
+			case 'H1':
+				var h, t;
+				for(let i = 0; i < array.length; i++){
+					h = document.createElement("h1");
+					t = document.createTextNode(array[i]);
+					h.appendChild(t);				
+					document.getElementById("myDIV2").appendChild(h);   
+				}				
+				break;
+		}			
+    };
+	let para = ["This ia para1", "This is para2", "This is para3"];
+	superAppend(para, "myDIV1", "p");
+	let heading = ["This is heading1", "This is heading2"]
+	superAppend(heading, "myDIV2", "h1");	
+    superAppend(students, "main2");
+	
+</script>   
+</body>
+</html>

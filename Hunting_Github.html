@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+  <body>
+    <button id="button">Display</button>
+	<div id="myDiv">test</div>
+    <script>		
+		
+		$.get("https://api.github.com/users/dthangavelu", displayName);
+		var button = document.getElementById("button");		
+		button.addEventListener("click", displayName);		
+		
+		function displayName(data) {
+		  console.log(data);
+		  //document.getElementById("#myDiv").text(data);
+		  $("#myDiv").html(data);
+		}
+    </script>
+  </body>
+</html>
